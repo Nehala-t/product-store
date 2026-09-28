@@ -84,7 +84,7 @@ export default function Productdetails ()  {
 
         <div className="single-product-image-box">
           <img
-            src={`http://localhost:5000${product.image}`}
+            src={`${process.env.NEXT_PUBLIC_API_URL}${product.image}`}
             alt={product.title}
             className="single-product-image"
           />
