@@ -381,10 +381,17 @@ const fetchOrders = async () => {
                       const itemTotal =
                         price * quantity;
 
-                      const imageUrl =
-                        product?.image
-                          ? `${process.env.NEXT_PUBLIC_API_URL}${product.image}`
-                          : "/images/product-placeholder.png";
+                      const imageUrl = product?.image
+  ? product.image.startsWith("http")
+    ? product.image.replace(
+        "http://localhost:5000",
+        process.env.NEXT_PUBLIC_API_URL
+      )
+    : `${process.env.NEXT_PUBLIC_API_URL}/${product.image.replace(
+        /^\/+/,
+        ""
+      )}`
+  : "/images/placeholder.png";
 
                       return (
                         <div
