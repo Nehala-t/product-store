@@ -192,6 +192,15 @@ export default function SellerOrders() {
                   const product =
                     item.productId;
 
+                    console.log("PRODUCT:", product);
+console.log("PRODUCT IMAGE:", product?.image);
+console.log(
+  "IMAGE URL:",
+  product?.image
+    ? `${process.env.NEXT_PUBLIC_API_URL}${product.image}`
+    : "/images/placeholder.png"
+);
+
                   const imageUrl = product?.image
                     ? `${process.env.NEXT_PUBLIC_API_URL}${product.image}`
                     : "/images/placeholder.png";
