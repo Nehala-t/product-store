@@ -195,14 +195,7 @@ console.log("SELLER ORDERS LENGTH:", sellerOrders.length);
                   const product =
                     item.productId;
 
-                    console.log("PRODUCT:", product);
-console.log("PRODUCT IMAGE:", product?.image);
-console.log(
-  "IMAGE URL:",
-  product?.image
-    ? `${process.env.NEXT_PUBLIC_API_URL}${product.image}`
-    : "/images/placeholder.png"
-);
+         
 
                   const imageUrl = product?.image
                     ? `${process.env.NEXT_PUBLIC_API_URL}${product.image}`
@@ -217,15 +210,19 @@ console.log(
                       }
                     >
                       {/* PRODUCT IMAGE */}
-                      <div className="order-product-image">
-                        <img
-                          src={imageUrl}
-                          alt={
-                            product?.title ||
-                            "Product"
-                          }
-                        />
-                      </div>
+                     {/* PRODUCT IMAGE */}
+<div className="order-product-image">
+  <img
+    src={imageUrl}
+    alt={product?.title || "Product"}
+    onLoad={() => {
+      console.log("IMAGE LOADED:", imageUrl);
+    }}
+    onError={() => {
+      console.log("IMAGE FAILED:", imageUrl);
+    }}
+  />
+</div>
 
                       {/* PRODUCT DETAILS */}
                       <div className="order-product-details">
