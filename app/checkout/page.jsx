@@ -532,7 +532,7 @@ const saveAddress = async () => {
                     price * quantity;
 
                   const image = product?.image
-                    ? `${`http://localhost:5000${product?.image}`}`
+                    ? `${`${process.env.NEXT_PUBLIC_API_URL}${product?.image}`}`
                     : "/images/product-placeholder.png";
 
                   return (
