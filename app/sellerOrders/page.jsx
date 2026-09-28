@@ -193,7 +193,7 @@ export default function SellerOrders() {
                     item.productId;
 
                   const imageUrl = product?.image
-                    ? `${`http://localhost:5000`}${product.image}`
+                    ? `${process.env.NEXT_PUBLIC_API_URL}${product.image}`
                     : "/images/placeholder.png";
 
                   return (
