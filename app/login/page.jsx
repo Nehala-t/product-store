@@ -25,12 +25,7 @@ export default function Login() {
 
   console.log(user, '------------->>>>login page');
 useEffect(() => {
-  console.log("USER CHANGED:", user);
-
   if (!user) return;
-
-  console.log("REDIRECTING...");
-  console.log("USER ROLE:", user.role);
 
   if (user.role === "seller") {
     router.push("/sellerDashBoard");
