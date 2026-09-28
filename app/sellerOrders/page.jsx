@@ -47,6 +47,9 @@ export default function SellerOrders() {
       console.log("SELLER ORDERS:", response.data);
 
       setOrders(response.data?.data || []);
+
+      console.log("SELLER ORDERS DATA:", sellerOrders);
+console.log("SELLER ORDERS LENGTH:", sellerOrders.length);
     } catch (error) {
       console.log(
         "SELLER ORDERS ERROR:",
