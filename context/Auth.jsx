@@ -38,49 +38,50 @@ export const AuthProvider = ({ children }) => {
   }, []);
 
   // Login
-  const login = async (email, password) => {
-    try {
-      const response = await api.post("/users/login", {
-        email,
-        password,
-      });
+ const login = async (email, password) => {
+  try {
+    const response = await api.post("/users/login", {
+      email,
+      password,
+    });
 
-      console.log("Login response:", response.data);
+    console.log("Login response:", response.data);
 
-      if (response.data.success) {
-        const userData = response.data.data;
-        const token = response.data.accessToken;
+    if (response.data.success) {
+      const userData = response.data.data;
+      const token = response.data.accessToken;
 
-        // Update user state
-        setUser(userData);
+      console.log("SETTING USER:", userData);
 
-        // Save user
-        localStorage.setItem(
-          "loggedInUser",
-          JSON.stringify(userData)
-        );
+      setUser(userData);
 
-        // Save token
-        localStorage.setItem("accessToken", token);
-
-        toast.success("Login successful 🎉");
-
-        return true;
-      }
-
-      return false;
-
-    } catch (error) {
-      console.log("Login error:", error);
-
-      toast.error(
-        error.response?.data?.message ||
-        "Invalid email or password"
+      localStorage.setItem(
+        "loggedInUser",
+        JSON.stringify(userData)
       );
 
-      return false;
+      localStorage.setItem(
+        "accessToken",
+        token
+      );
+
+      toast.success("Login successful 🎉");
+
+      return true;
     }
-  };
+
+    return false;
+  } catch (error) {
+    console.log("Login error:", error);
+
+    toast.error(
+      error.response?.data?.message ||
+      "Invalid email or password"
+    );
+
+    return false;
+  }
+};
 
   // Logout
   const logout = () => {
