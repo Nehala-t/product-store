@@ -396,18 +396,19 @@ const fetchOrders = async () => {
                         >
 
                           {/* IMAGE */}
-
-                          <div className="order-product-image">
-
-                            <img
-                              src={image}
-                              alt={
-                                product?.title ||
-                                "Product"
-                              }
-                            />
-
-                          </div>
+{/* PRODUCT IMAGE */}
+<div className="order-product-image">
+  <img
+    src={imageUrl}
+    alt={product?.title || "Product"}
+    onLoad={() => {
+      console.log("IMAGE LOADED:", imageUrl);
+    }}
+    onError={() => {
+      console.log("IMAGE FAILED:", imageUrl);
+    }}
+  />
+</div>
 
                           {/* PRODUCT INFO */}
 
