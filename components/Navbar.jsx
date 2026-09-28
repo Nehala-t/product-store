@@ -138,13 +138,16 @@ const Navbar = () => {
               {!user ? "LOGIN" : "LOGOUT"}
             </button>
           </div>
+          {/* order history - User only */}
+          {user?.role === "user" && (
 <div
   className="order-history-icon"
   onClick={() => router.push("/orderHistory")}
   title="Order History"
 >
   <Package size={22} />
-</div>       
+</div>   
+          )}    
   
 
 
