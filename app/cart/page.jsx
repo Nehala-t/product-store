@@ -252,7 +252,7 @@ export default function Cart() {
                     <div className="cart-image-wrapper">
 
                       <img
-                        src={`http://localhost:5000${product?.image}`}
+                        src={`${process.env.NEXT_PUBLIC_API_URL}${product?.image}`}
                         alt={product?.title}
                         className="cart-product-image"
                       />
