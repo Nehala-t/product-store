@@ -381,7 +381,7 @@ const fetchOrders = async () => {
                       const itemTotal =
                         price * quantity;
 
-                      const image =
+                      const imageUrl =
                         product?.image
                           ? `${process.env.NEXT_PUBLIC_API_URL}${product.image}`
                           : "/images/product-placeholder.png";
